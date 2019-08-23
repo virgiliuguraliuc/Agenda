@@ -1,0 +1,60 @@
+package org.fasttrackit.domain;
+
+public class Agenda {
+    private long id;
+    private String FirstName;
+    private String LastName;
+    private int PhoneNumber;
+    private String email;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public int getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Agenda{" +
+                "id=" + id +
+                ", FirstName='" + FirstName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                ", PhoneNumber=" + PhoneNumber +
+                ", email='" + email + '\'' +
+                '}';
+    }
+}
