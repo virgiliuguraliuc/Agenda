@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AgendaRepository {
-    public void createTodoItem (String FirstName, String LastName, int PhoneNumber, String email) throws SQLException, IOException, ClassNotFoundException {
+    public void createTodoItem (String FirstName, String LastName, String  PhoneNumber, String email) throws SQLException, IOException, ClassNotFoundException {
         String insertSql = "INSERT INTO to_do_list (description, deadline) VALUES (?, ?, ?, ?)";
         //try with resources
         try (Connection connection = DatabaseConfiguration.getConnection();
@@ -17,7 +17,7 @@ public class AgendaRepository {
         ) {
             preparedStatement.setString(1, FirstName);
             preparedStatement.setString(2, LastName);
-            preparedStatement.setInt(3, PhoneNumber);
+            preparedStatement.setString(3, PhoneNumber);
             preparedStatement.setString(4, email);
 
             preparedStatement.executeUpdate();
