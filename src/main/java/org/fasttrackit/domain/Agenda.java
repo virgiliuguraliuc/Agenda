@@ -4,7 +4,7 @@ public class Agenda {
     private long id;
     private String FirstName;
     private String LastName;
-    private int PhoneNumber;
+    private String PhoneNumber;
     private String email;
 
     public long getId() {
@@ -31,11 +31,11 @@ public class Agenda {
         LastName = lastName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return PhoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         PhoneNumber = phoneNumber;
     }
 

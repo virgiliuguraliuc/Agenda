@@ -4,7 +4,7 @@ public class SaveAgendaRequest {
 
     private String FirstName;
     private String LastName;
-    private int PhoneNumber;
+    private String PhoneNumber;
     private String email;
 
 
@@ -25,11 +25,11 @@ public class SaveAgendaRequest {
         this.LastName = lastName;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return PhoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.PhoneNumber = phoneNumber;
     }
 

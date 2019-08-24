@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AgendaRepository {
     public void createTodoItem (String FirstName, String LastName, String  PhoneNumber, String email) throws SQLException, IOException, ClassNotFoundException {
-        String insertSql = "INSERT INTO to_do_list (description, deadline) VALUES (?, ?, ?, ?)";
+        String insertSql = "INSERT INTO agenda (description, deadline) VALUES (?, ?, ?, ?)";
         //try with resources
         try (Connection connection = DatabaseConfiguration.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(insertSql)
@@ -25,7 +25,7 @@ public class AgendaRepository {
     }
 
     public List<Agenda> getTodoItem () throws SQLException, IOException, ClassNotFoundException {
-        String query ="SELECT id, description, deadline, done FROM  to_do_list";
+        String query ="SELECT id, description, deadline, done FROM  agenda";
 
         try (Connection connection = DatabaseConfiguration.getConnection();
              Statement statement = connection.createStatement()
@@ -40,7 +40,7 @@ public class AgendaRepository {
                 agenda.setId(resultSet.getLong("id"));
                 agenda.setFirstName(resultSet.getString("first_name"));
                 agenda.setLastName(resultSet.getString("last_name"));
-                agenda.setPhoneNumber(resultSet.getInt("phone_number"));
+                agenda.setPhoneNumber(resultSet.getString("phone_number"));
                 agenda.setEmail(resultSet.getString("email"));
 
                 toDoItems.add(agenda);
@@ -52,7 +52,7 @@ public class AgendaRepository {
     }
 
     public void deleteToDoItem(long id) throws SQLException, IOException, ClassNotFoundException {
-        String sql ="DELETE FROM to_do_list WHERE id = ?";
+        String sql ="DELETE FROM agenda WHERE id = ?";
 
 
         try (Connection connection = DatabaseConfiguration.getConnection();
@@ -65,7 +65,7 @@ public class AgendaRepository {
     }
 
 
-    public void updateToDoItem(long id, String FirstName, String LastName, int PhoneNumber, String email) throws SQLException, IOException, ClassNotFoundException {
+    public void updateToDoItem(long id, String FirstName, String LastName,String PhoneNumber, String email) throws SQLException, IOException, ClassNotFoundException {
         String upd ="UPDATE agenda SET first_name = ? last_name = ? phone_number = ? email = ? WHERE id = ?";
 
 
@@ -75,7 +75,7 @@ public class AgendaRepository {
             preparedStatement.setLong(1, id);
             preparedStatement.setString(2, FirstName);
             preparedStatement.setString(3, LastName);
-            preparedStatement.setInt(4, PhoneNumber);
+            preparedStatement.setString(4, PhoneNumber);
             preparedStatement.setString(5, email);
             preparedStatement.executeUpdate();
 
