@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AgendaRepository {
     public void createTodoItem (String FirstName, String LastName, String  PhoneNumber, String email) throws SQLException, IOException, ClassNotFoundException {
-        String insertSql = "INSERT INTO agenda (description, deadline) VALUES (?, ?, ?, ?)";
+        String insertSql = "INSERT INTO agenda (first_name, last_name, phone_number, email) VALUES (?, ?, ?, ?)";
         //try with resources
         try (Connection connection = DatabaseConfiguration.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(insertSql)
@@ -25,7 +25,7 @@ public class AgendaRepository {
     }
 
     public List<Agenda> getTodoItem () throws SQLException, IOException, ClassNotFoundException {
-        String query ="SELECT id, description, deadline, done FROM  agenda";
+        String query ="SELECT id, first_name, last_name, phone_number, email FROM  agenda";
 
         try (Connection connection = DatabaseConfiguration.getConnection();
              Statement statement = connection.createStatement()
