@@ -1,5 +1,6 @@
 package org.fasttrackit.transfer;
 
+
 public class SaveAgendaRequest {
 
     private String FirstName;
@@ -8,13 +9,12 @@ public class SaveAgendaRequest {
     private String email;
 
 
-
     public String getFirstName() {
         return FirstName;
     }
 
     public void setFirstName(String firstName) {
-        this.FirstName = firstName;
+        FirstName = firstName;
     }
 
     public String getLastName() {
@@ -22,7 +22,7 @@ public class SaveAgendaRequest {
     }
 
     public void setLastName(String lastName) {
-        this.LastName = lastName;
+        LastName = lastName;
     }
 
     public String getPhoneNumber() {
@@ -30,7 +30,7 @@ public class SaveAgendaRequest {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.PhoneNumber = phoneNumber;
+        PhoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -43,11 +43,11 @@ public class SaveAgendaRequest {
 
     @Override
     public String toString() {
-        return "Agenda{" + ", FirstName='" + FirstName + '\'' +
+        return "SaveAgendaRequest{" +
+                "FirstName='" + FirstName + '\'' +
                 ", LastName='" + LastName + '\'' +
-                ", PhoneNumber=" + PhoneNumber +
+                ", PhoneNumber='" + PhoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
-
 }

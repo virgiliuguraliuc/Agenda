@@ -37,12 +37,6 @@ public class AgendaService {
 
 
 
-// preparedStatement.setLong(1, id);
-//            preparedStatement.setString(2, FirstName);
-//            preparedStatement.setString(3, LastName);
-//            preparedStatement.setInt(4, PhoneNumber);
-//            preparedStatement.setString(5, email);
-//            preparedStatement.executeUpdate();
 
 
 
