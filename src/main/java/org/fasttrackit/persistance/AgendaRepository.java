@@ -94,7 +94,7 @@ public class AgendaRepository {
             preparedStatement.setString(1, "%" + find + "%");
 
             ResultSet resultSet = preparedStatement.executeQuery(query);
-            List<Agenda> toDoItems = new ArrayList<>();
+            List<Agenda> find_toDoItems = new ArrayList<>();
 
             while (resultSet.next()) {
                 Agenda agenda = new Agenda();
@@ -104,10 +104,10 @@ public class AgendaRepository {
                 agenda.setPhoneNumber(resultSet.getString("phone_number"));
                 agenda.setEmail(resultSet.getString("email"));
 
-                toDoItems.add(agenda);
+               find_toDoItems.add(agenda);
             }
 
-            return toDoItems;
+            return find_toDoItems;
 
         }
     }
