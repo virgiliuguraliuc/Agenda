@@ -30,7 +30,7 @@ import java.util.List;
             try {
                 agendaService.createTodoItem(request);
             } catch (SQLException | ClassNotFoundException e) {
-                resp.sendError(500, "internal server error: " + e.getMessage());
+                resp.sendError(201, "internal server error: " + e.getMessage());
             }
 
         }
@@ -46,7 +46,7 @@ import java.util.List;
                 resp.getWriter().flush();
                 resp.getWriter().close();
             } catch (SQLException | ClassNotFoundException e) {
-                resp.sendError(500, "internal server error: " + e.getMessage());
+                resp.sendError(200, "internal server error: " + e.getMessage());
             }
 
         }
@@ -58,7 +58,7 @@ import java.util.List;
             try {
                 agendaService.deleteToDoItem(Long.parseLong(id));
             } catch (SQLException | ClassNotFoundException e) {
-                resp.sendError(500, "internal server error: " + e.getMessage());
+                resp.sendError(405, "internal server error: " + e.getMessage());
             }
         }
 
@@ -71,7 +71,7 @@ import java.util.List;
             try {
                 agendaService.updateToDoItem(Long.parseLong(id), request);
             } catch (SQLException | ClassNotFoundException e) {
-                resp.sendError(500, "internal server error: " + e.getMessage());
+                resp.sendError(405, "internal server error: " + e.getMessage());
             }
         }
 
