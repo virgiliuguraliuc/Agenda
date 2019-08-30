@@ -34,7 +34,10 @@ public class AgendaService {
         agendaRepository.updateToDoItem(id, request.getFirstName(), request.getLastName(), request.getPhoneNumber(), request.getEmail());
     }
 
-
+    public List<Agenda> findToDoItem(String request)  throws SQLException, IOException, ClassNotFoundException {
+        System.out.println("Finding " + request + " in agenda ....." );
+       return agendaRepository.findTodoItem(request);
+    }
 
 
 

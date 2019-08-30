@@ -13,6 +13,8 @@ public class App
 {
     public static void main( String[] args ) throws SQLException, IOException, ClassNotFoundException {
         AgendaRepository agendaRepository = new AgendaRepository();
-        agendaRepository.createTodoItem("virgiliu", "guraliuc", "0742845514", "virgiliuguraliuc@gmail.com" );
+      //  agendaRepository.createTodoItem("virgiliu", "guraliuc", "0742845514", "virgiliuguraliuc@gmail.com" );
+       // agendaRepository.findTodoItem("virgiliu");
+        System.out.print(agendaRepository.findTodoItem("virgiliu"));
     }
 }

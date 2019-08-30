@@ -84,16 +84,15 @@ public class AgendaRepository {
 
 
     public List<Agenda> findTodoItem(String find) throws SQLException, IOException, ClassNotFoundException {
-        String query = "SELECT * FROM agenda WHERE concat (first_name, last_name, phone_number, email) LIKE ?";
+        String query = "SELECT * FROM agenda WHERE CONCAT(first_name, last_name, phone_number, email) LIKE ?";
 
         try (Connection connection = DatabaseConfiguration.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)
 
 
         ) {
-            preparedStatement.setString(1, "%" + find + "%");
-
-            ResultSet resultSet = preparedStatement.executeQuery(query);
+            preparedStatement.setString(1, ("'"+"%"+ find + "%"+"'"));
+            ResultSet resultSet = preparedStatement.executeQuery();
             List<Agenda> find_toDoItems = new ArrayList<>();
 
             while (resultSet.next()) {
