@@ -39,7 +39,7 @@ import java.util.List;
 
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            String findQuery = req.getQueryString();
+
             try {
                 List<Agenda> todoItems = agendaService.getTodoItem();
                 String responseJson = ObjectMapperConfiguration.getObjectMapper().writeValueAsString(todoItems);
@@ -48,13 +48,6 @@ import java.util.List;
                 resp.getWriter().flush();
                 resp.getWriter().close();
 
-
-                List<Agenda> findtodoItems = agendaService.findToDoItem(findQuery);
-                String queryJson = ObjectMapperConfiguration.getObjectMapper().writeValueAsString(findtodoItems);
-
-                resp.getWriter().print(queryJson);
-                resp.getWriter().flush();
-                resp.getWriter().close();
 
             } catch (SQLException | ClassNotFoundException e) {
                 resp.sendError(200, "internal server error: " + e.getMessage());
@@ -84,23 +77,6 @@ import java.util.List;
             } catch (SQLException | ClassNotFoundException e) {
                 resp.sendError(405, "internal server error: " + e.getMessage());
             }
-        }
-
-
-        protected void Query2(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            String findQuery = req.getQueryString();
-
-            try {
-                List<Agenda> findtodoItems = agendaService.findToDoItem(findQuery);
-                String queryJson = ObjectMapperConfiguration.getObjectMapper().writeValueAsString(findtodoItems);
-
-                resp.getWriter().print(queryJson);
-                resp.getWriter().flush();
-                resp.getWriter().close();
-            } catch (SQLException | ClassNotFoundException e) {
-                resp.sendError(200, "internal server error: " + e.getMessage());
-            }
-
         }
 
 

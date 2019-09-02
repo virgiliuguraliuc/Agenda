@@ -1,5 +1,6 @@
 package org.fasttrackit;
 
+import com.mysql.cj.util.StringUtils;
 import org.fasttrackit.persistance.AgendaRepository;
 
 import java.io.IOException;
@@ -15,6 +16,7 @@ public class App
         AgendaRepository agendaRepository = new AgendaRepository();
       //  agendaRepository.createTodoItem("virgiliu", "guraliuc", "0742845514", "virgiliuguraliuc@gmail.com" );
        // agendaRepository.findTodoItem("virgiliu");
-        System.out.print(agendaRepository.findTodoItem("virgiliu"));
+     //   System.out.print(agendaRepository.findTodoItem("maria"));
+
     }
 }
