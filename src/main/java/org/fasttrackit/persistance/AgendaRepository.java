@@ -65,20 +65,20 @@ public class AgendaRepository {
     }
 
 
-    public void updateToDoItem(long id, String FirstName, String LastName, String PhoneNumber, String email) throws SQLException, IOException, ClassNotFoundException {
-        String upd = "UPDATE agenda SET first_name = ? last_name = ? phone_number = ? email = ? WHERE id = ?";
-
+    public void updateToDoItem(String FirstName, String LastName, String PhoneNumber, String Email, long id) throws SQLException, IOException, ClassNotFoundException {
+        //String upd = "UPDATE agenda SET first_name = ? WHERE id = ?;";
+        String upd = "UPDATE agenda SET (first_name = ?, last_name = ?, phone_number = ?, email = ?) WHERE id = ?;";
 
         try (Connection connection = DatabaseConfiguration.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(upd)
         ) {
-            preparedStatement.setLong(1, id);
-            preparedStatement.setString(2, FirstName);
-            preparedStatement.setString(3, LastName);
-            preparedStatement.setString(4, PhoneNumber);
-            preparedStatement.setString(5, email);
+            preparedStatement.setLong(5, id);
+            preparedStatement.setString(1, FirstName );
+            preparedStatement.setString(2, LastName);
+            preparedStatement.setString(3, PhoneNumber);
+            preparedStatement.setString(4, Email);
             preparedStatement.executeUpdate();
-
+            System.out.println(id + FirstName + LastName + PhoneNumber + Email);
         }
     }
 

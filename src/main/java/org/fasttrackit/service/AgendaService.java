@@ -30,8 +30,9 @@ public class AgendaService {
 
 
     public void updateToDoItem(long id, SaveAgendaRequest request) throws SQLException, IOException, ClassNotFoundException {
-        System.out.println("Updating contact" + request);
-        agendaRepository.updateToDoItem(id, request.getFirstName(), request.getLastName(), request.getPhoneNumber(), request.getEmail());
+        System.out.println("Updating contact" + request + "at id" + id);
+        agendaRepository.updateToDoItem(request.getFirstName(), request.getLastName(), request.getPhoneNumber(), request.getEmail(), id);
+
     }
 
     public List<Agenda> findToDoItem(String request)  throws SQLException, IOException, ClassNotFoundException {
